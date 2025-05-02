@@ -192,8 +192,8 @@ getCoinById(coinID).then(async(coin) => {
           labels: labels,
           datasets: [{
               label: 'Price (USD)',
-              borderColor: 'oklch(52.7% 0.154 150.069)',
-              backgroundColor: 'rgba(21, 220, 64, 0.2)',
+              borderColor: 'rgba(102, 255, 0)',
+              backgroundColor: 'rgba(124, 252, 0 , 0.7)',
               data: data,
               fill: true,
               borderWidth: 2,
