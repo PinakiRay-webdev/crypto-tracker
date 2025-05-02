@@ -8,6 +8,9 @@ const coinID = currentURL.get("id");
 const leftSection = document.querySelector("#left");
 const pricePerformance = document.querySelector('#price_performance');
 const coinDesc = document.querySelector('#coin-desc');
+const expandDescBtn = document.querySelector('#expandDescBtn');
+
+let descTextSize = 350;
 
 const checkPositivity = (num) => {
   return num >= 0 ? true : false;
@@ -128,5 +131,17 @@ getCoinById(coinID).then((coin) => {
 
   leftSection.insertAdjacentHTML("beforeend", coinData);
   pricePerformance.insertAdjacentHTML("beforeend" , price_brief)
-  coinDesc.textContent = coin.description.en
+  coinDesc.textContent = `${coin.description.en}`.slice(0 , descTextSize)+"........"
+
+  expandDescBtn.addEventListener('click' , () =>{
+    if(expandDescBtn.textContent === 'See More'){
+      descTextSize = Infinity
+  coinDesc.textContent = `${coin.description.en}`.slice(0 , descTextSize)
+      expandDescBtn.textContent = 'See less'
+    }else{
+      descTextSize = 350
+      coinDesc.textContent = `${coin.description.en}`.slice(0 , descTextSize)+"........"
+      expandDescBtn.textContent = 'See More'
+    }
+  })
 });
