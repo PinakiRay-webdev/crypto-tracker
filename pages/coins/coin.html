@@ -37,9 +37,19 @@
             </section>
         </div>
         <!-- coin chart  -->
-        <div class="h-screen flex-1"></div>
+        <div class="h-screen flex-1">
+            <header class="flex justify-center gap-8 mt-8" >
+                <p class="bg-slate-400 text-black px-3 py-1 rounded-md cursor-pointer" >24 hr</p>
+                <p class="bg-slate-400 text-black px-3 py-1 rounded-md cursor-pointer" >30 days</p>
+                <p class="bg-slate-400 text-black px-3 py-1 rounded-md cursor-pointer" >3 months</p>
+            </header>
+            <div class="p-4" >
+                <canvas id="coinChart"></canvas>
+              </div>
+        </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="coin.js"></script>
     
 </body>
