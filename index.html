@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <!-- tailwind css  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>crypto tracker</title>
+  </head>
+  <body>
+
+    <!-- header part  -->
+    <header
+      class="max-w-screen-xl mx-auto flex items-center justify-between h-[10vh]"
+    >
+      <h3 class="font-semibold text-2xl cursor-pointer">
+        <a href="index.html">
+          Crpto<span class="text-green-500">Cap</span>
+        </a>
+      </h3>
+
+      <!-- nav elements  -->
+      <nav class="flex items-center gap-[1rem]">
+        <li class="list-none font-[500] cursor-pointer active">Home</li>
+        <li class="list-none font-[500] cursor-pointer">Business</li>
+        <li class="list-none font-[500] cursor-pointer">Trade</li>
+        <li class="list-none font-[500] cursor-pointer">Market</li>
+        <li class="list-none font-[500] cursor-pointer">Learn</li>
+      </nav>
+
+      <!-- account section  -->
+      <section id="accounts" class="flex gap-4">
+        <button class="cursor-pointer">
+          <i class="fa-regular fa-bell"></i>
+        </button>
+        <button id="wishlist" class="cursor-pointer">
+          <a href="pages/Wishlist/wishlist.html">
+            <i class="fa-regular fa-heart"></i>
+          </a>
+        </button>
+        <button
+          class="bg-green-500 px-6 py-1 rounded cursor-pointer text-white hover:bg-green-600"
+        >
+          Log in
+        </button>
+      </section>
+    </header>
+
+    <!-- main section  -->
+    <main>
+        <!-- hero section  -->
+      <section id="hero" class="flex items-center justify-center h-[90vh]">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold">
+            Start and Build Your Crypto Portfolio Here
+          </h1>
+          <p class="my-4 w-[50%] text-xl mx-auto text-gray-600">
+            Only at CryptoCap, you can build a good portfolio and learn best
+            practices about cryptocurrency.
+          </p>
+          <button
+            class="bg-green-700 px-7 py-2 mt-4 rounded text-white cursor-pointer"
+          >
+            Get started
+          </button>
+        </div>
+      </section> 
+
+      <!-- crypto coin list  -->
+      <section id="market-update" class="max-w-screen-xl mx-auto my-6">
+        <h2 class="text-3xl font-[400]">Market update</h2>
+        <article>
+          <table
+            class="border-collapse border border-gray-300 w-[100%] mt-8 mx-auto text-center"
+          >
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="border border-gray-400 px-4 py-2">No.</th>
+                <th class="border border-gray-400 px-4 py-2">Icon</th>
+                <th class="border border-gray-400 px-4 py-2">Name</th>
+                <th class="border border-gray-400 px-4 py-2">
+                  <div class="flex items-center justify-center gap-2">
+                    <p>Price</p>
+                    <i class="fa-solid fa-arrow-up text-green-500"></i>
+                    <i class="fa-solid fa-arrow-down text-red-500"></i>
+                  </div>
+                </th>
+                <th class="border border-gray-400 px-4 py-2">
+                  <div class="flex items-center justify-center gap-2">
+                    <p>Volume</p>
+                    <i class="fa-solid fa-arrow-up text-green-500"></i>
+                    <i class="fa-solid fa-arrow-down text-red-500"></i>
+                  </div>
+                </th>
+                <th class="border border-gray-400 px-4 py-2">
+                  <div class="flex items-center justify-center gap-2">
+                    <p>Market Cap</p>
+                    <i class="fa-solid fa-arrow-up text-green-500"></i>
+                    <i class="fa-solid fa-arrow-down text-red-500"></i>
+                  </div>
+                </th>
+                <th class="border border-gray-400 px-4 py-2">Favourite</th>
+              </tr>
+            </thead>
+            <tbody id="table-body" >
+
+            </tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

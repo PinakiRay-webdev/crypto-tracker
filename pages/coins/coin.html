@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="coin.styles.css">
+        <!-- tailwind css  -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <!-- font awesome  -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+    <title>coins</title>
+</head>
+<body class="bg-[#0D1421]" >
+    <main class="flex h-screen" >
+        <div class="border-r border-zinc-600 h-screen w-[25%] px-4 py-8 overflow-y-auto" >
+            <section id="left">
+    
+            </section>
+            <section id="price_performance" class="mt-5" >
+            </section>
+
+            <section id="description" class="mt-5" >
+                <h4 class="text-white" >Description</h4>
+                <p id="coin-desc" class="text-zinc-500 text-sm mt-3"></p>
+            </section>
+        </div>
+        <section class="h-screen flex-1"></section>
+    </main>
+
+    <script type="module" src="coin.js"></script>
+</body>
+</html>
