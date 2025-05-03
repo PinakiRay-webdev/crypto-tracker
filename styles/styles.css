@@ -3,8 +3,10 @@ body{
     padding: 0px;
     /* background-color: #212529; */
     font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom right, #f2fbff, #f6e5f9);
+
 }
 
-#hero{
+/* #hero{
     background: linear-gradient(to bottom right, #f2fbff, #f2d1f7);
-}
+} */
