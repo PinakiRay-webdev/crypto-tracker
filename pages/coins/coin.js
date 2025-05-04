@@ -10,7 +10,7 @@ const leftSection = document.querySelector("#left");
 const pricePerformance = document.querySelector("#price_performance");
 const coinDesc = document.querySelector("#coin-desc");
 const expandDescBtn = document.querySelector("#expandDescBtn");
-const coinChart = document.querySelector("#coinChart").getContext('2d');
+const coinChart = document.querySelector("#coinChart").getContext("2d");
 
 let descTextSize = 350;
 
@@ -18,7 +18,7 @@ const checkPositivity = (num) => {
   return num >= 0 ? true : false;
 };
 
-getCoinById(coinID).then(async(coin) => {
+getCoinById(coinID).then(async (coin) => {
   const coinData = `<article >
                     <div class="flex gap-3 items-start">                    
                     <img class="w-10" src="${
@@ -180,45 +180,59 @@ getCoinById(coinID).then(async(coin) => {
   // Fetch historical data
   const historicalData = await getHistoricalData(coinID, 1);
   const labels = historicalData.map(([timestamp]) => {
-      const date = new Date(timestamp);
-      return `${date.getDate()}/${date.getMonth() + 1}`;
+    const date = new Date(timestamp);
+    return `${date.getDate()}/${date.getMonth() + 1}`;
   });
   const data = historicalData.map(([_, price]) => price);
 
+  //gradient color
+
+  const gradient = coinChart.createLinearGradient(0, 0, 0, 400);
+
+  if(checkPositivity(coin.market_data.price_change_percentage_24h)){
+    gradient.addColorStop(0, "rgba(20, 252, 8, 0.5)");
+    gradient.addColorStop(1, "rgba(41, 161, 79, 0)");
+  }else{
+    gradient.addColorStop(0, "rgba(255, 69, 0, 0.5)");
+    gradient.addColorStop(1, "rgba(139, 48, 48, 0)");
+  }
+
+
   // Chart logic
   const crytoChart = new Chart(coinChart, {
-      type: 'line',
-      data: {
-          labels: labels,
-          datasets: [{
-              label: 'Price (USD)',
-              borderColor: 'rgba(102, 255, 0)',
-              backgroundColor: 'rgba(124, 252, 0 , 0.7)',
-              data: data,
-              fill: true,
-              borderWidth: 2,
-              pointRadius: 3
-          }],
-      },
-      options: {
-          scales: {
-              y: {
-                  beginAtZero: false,
-                  title: { display: true, text: 'Price (USD)' },
-                  ticks: {
-                      callback: function (value) {
-                          return `$${value}`;
-                      }
-                  }
-              },
-              x: {
-                  grid: { display: false },
-                  title: { display: true, text: 'Date' }
-              },
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Price (USD)",
+          borderColor: "#EA3943",
+          backgroundColor: gradient,
+          data: data,
+          fill: true,
+          borderWidth: 2,
+          pointRadius: 0,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false,
+          title: { display: true, text: "Price (USD)" },
+          ticks: {
+            callback: function (value) {
+              return `$${value}`;
+            },
           },
-          responsive: true,
-          maintainAspectRatio: true,
-      }
+        },
+        x: {
+          grid: { display: false },
+          title: { display: true, text: "Date" },
+        },
+      },
+      responsive: true,
+      maintainAspectRatio: true,
+    },
   });
-  
 });
