@@ -188,13 +188,15 @@ getCoinById(coinID).then(async (coin) => {
   //gradient color
 
   const gradient = coinChart.createLinearGradient(0, 0, 0, 400);
-
+  let borderColor;
   if(checkPositivity(coin.market_data.price_change_percentage_24h)){
     gradient.addColorStop(0, "rgba(20, 252, 8, 0.5)");
     gradient.addColorStop(1, "rgba(41, 161, 79, 0)");
+    borderColor = "rgba(20, 252, 8, 1)"
   }else{
     gradient.addColorStop(0, "rgba(255, 69, 0, 0.5)");
     gradient.addColorStop(1, "rgba(139, 48, 48, 0)");
+    borderColor = "rgba(255, 69, 0, 1)"
   }
 
 
@@ -206,7 +208,7 @@ getCoinById(coinID).then(async (coin) => {
       datasets: [
         {
           label: "Price (USD)",
-          borderColor: "#EA3943",
+          borderColor: borderColor,
           backgroundColor: gradient,
           data: data,
           fill: true,
